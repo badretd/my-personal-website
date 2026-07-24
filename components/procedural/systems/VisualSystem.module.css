@@ -1,0 +1,120 @@
+.system { position: absolute; overflow: hidden; pointer-events: none; }
+.left { inset: 12% 52% 8% 4%; }
+.right { inset: 12% 4% 8% 52%; }
+.center { inset: 16% 19% 10%; }
+.lower { inset: 48% 4% 5%; }
+.full { inset: 8% 3% 4%; }
+.supporting { opacity: 0.34; }
+.supporting *, .supporting i { animation: none; }
+.system i { position: absolute; display: block; animation-play-state: var(--motion-state, running); }
+
+.line-field { display: flex; flex-direction: column; justify-content: space-around; }
+.line-field i {
+  position: relative;
+  width: calc(45% + (var(--index) % 5) * 11%);
+  height: 1px;
+  margin-left: calc((var(--index) % 4) * 7%);
+  background: var(--scene-fg);
+  opacity: calc(0.14 + var(--density) * 0.5);
+  animation: line-shift var(--speed) linear infinite alternate;
+}
+.line-field[data-variant="1"], .line-field[data-variant="3"] { flex-direction: row; }
+.line-field[data-variant="1"] i, .line-field[data-variant="3"] i {
+  width: 1px;
+  height: calc(44% + (var(--index) % 4) * 13%);
+  margin: calc((var(--index) % 3) * 6%) 0 0;
+}
+
+.modular-blocks { display: grid; grid-template-columns: 1.65fr 0.7fr 1fr 0.55fr 1.2fr; grid-template-rows: repeat(4, 1fr); gap: clamp(0.4rem, 1vw, 0.9rem); }
+.modular-blocks i {
+  position: relative;
+  align-self: stretch;
+  background: color-mix(in srgb, var(--scene-accent) 75%, transparent);
+  border: 1px solid var(--scene-fg);
+  opacity: calc(0.25 + var(--density) * 0.6);
+  animation: module-shift var(--speed) steps(4, end) infinite alternate;
+  animation-delay: calc(var(--index) * -0.45s);
+}
+.modular-blocks i:first-child { grid-column: 1 / span 2; grid-row: 1 / span 3; background: var(--scene-accent); }
+.modular-blocks i:nth-child(2) { grid-column: 4 / span 2; grid-row: 1; background: transparent; }
+.modular-blocks i:nth-child(3) { grid-column: 3; grid-row: 3 / span 2; }
+.modular-blocks i:nth-child(4) { grid-column: 5; grid-row: 3; background: transparent; }
+.modular-blocks i:nth-child(n + 8) { display: none; }
+
+.orbital-points { overflow: visible; }
+.orbital-points::before, .orbital-points::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(92%, 30rem);
+  aspect-ratio: 2 / 1;
+  border: 1px solid var(--scene-muted);
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%) rotate(-14deg);
+}
+.orbital-points::after { width: min(58%, 20rem); transform: translate(-50%, -50%) rotate(23deg); }
+.orbital-points i {
+  top: 50%;
+  left: 50%;
+  width: calc(3px + (var(--index) % 3) * 2px);
+  aspect-ratio: 1;
+  background: var(--scene-fg);
+  border-radius: 50%;
+  animation: orbit var(--speed) linear infinite;
+  animation-delay: calc(var(--index) * -1.7s);
+}
+
+.scanner-bands i {
+  inset: calc((var(--index) / var(--count)) * 100%) 0 auto;
+  height: max(1px, calc((var(--index) % 3) * 2px));
+  background: var(--scene-accent-alt);
+  opacity: calc(0.12 + var(--density));
+  animation: scan var(--speed) linear infinite;
+  animation-delay: calc(var(--index) * -0.8s);
+}
+
+.wave-lattice svg { width: 100%; height: 100%; overflow: visible; }
+.wave-lattice path {
+  fill: none;
+  stroke: var(--scene-fg);
+  stroke-width: 1;
+  opacity: calc(0.1 + var(--density) * 0.7);
+  vector-effect: non-scaling-stroke;
+  animation: wave var(--speed) ease-in-out infinite alternate;
+  animation-play-state: var(--motion-state, running);
+}
+
+.pulse-cells { display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(4, 1fr); gap: 0.45rem; }
+.pulse-cells i {
+  position: relative;
+  background: var(--scene-accent);
+  border: 1px solid var(--scene-muted);
+  opacity: 0.08;
+  animation: pulse var(--speed) steps(3, end) infinite;
+  animation-delay: calc(var(--index) * -0.61s);
+}
+
+.sliding-frames i {
+  inset: calc(6% + (var(--index) % 4) * 9%) calc(5% + (var(--index) % 5) * 8%);
+  background: transparent;
+  border: 1px solid var(--scene-fg);
+  opacity: calc(0.1 + var(--density) * 0.55);
+  animation: frame-slide var(--speed) cubic-bezier(.45, 0, .55, 1) infinite alternate;
+  animation-delay: calc(var(--index) * -0.8s);
+}
+
+@keyframes line-shift { to { transform: translateX(calc(var(--direction) * 18%)); } }
+@keyframes module-shift { to { transform: translateY(calc(var(--direction) * 14%)); opacity: 0.18; } }
+@keyframes orbit { from { transform: rotate(0) translateX(min(18vw, 14rem)); } to { transform: rotate(calc(var(--direction) * 360deg)) translateX(min(18vw, 14rem)); } }
+@keyframes scan { from { transform: translateY(-25vh); } to { transform: translateY(90vh); } }
+@keyframes wave { to { transform: translateX(calc(var(--direction) * 4%)) translateY(2%); } }
+@keyframes pulse { 50% { opacity: calc(0.25 + var(--density)); } }
+@keyframes frame-slide { to { transform: translateX(calc(var(--direction) * 13%)); } }
+
+@media (max-width: 47.99rem) {
+  .left, .right, .center, .lower, .full { inset: 18% 5% 8%; }
+  .supporting:nth-of-type(n + 3) { display: none; }
+  .system i:nth-child(n + 9) { display: none; }
+  .orbital-points i { animation: none; }
+}

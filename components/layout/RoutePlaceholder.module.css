@@ -1,0 +1,10 @@
+.main {
+  display: grid;
+  min-height: 100svh;
+  align-content: center;
+  padding: calc(var(--header-height) + 4rem) var(--page-gutter) 4rem;
+}
+.main > p:first-child { margin: 0 0 2rem; color: var(--muted); font: 0.7rem/1.4 "Courier New", monospace; }
+.main h1 { margin: 0; font-size: clamp(2.75rem, 8vw, 8rem); font-weight: 400; letter-spacing: -0.06em; }
+.rule { width: min(100%, 52rem); height: 1px; margin-block: 2rem; background: var(--line); }
+.description { max-width: 34rem; margin: 0; color: var(--muted); line-height: 1.6; }

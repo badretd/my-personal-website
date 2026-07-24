@@ -1,0 +1,37 @@
+.scene { position: absolute; inset: 0; overflow: hidden; background: var(--scene-bg); }
+.grid {
+  position: absolute;
+  inset: var(--pad-desktop);
+  background-image:
+    linear-gradient(to right, var(--scene-muted) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--scene-muted) 1px, transparent 1px);
+  background-size: var(--cell-desktop-x) 100%, 100% var(--cell-desktop-y);
+  opacity: 0.13;
+}
+.visuals { position: absolute; inset: 0; }
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitchTiles'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+@media (min-width: 90rem) {
+  .grid {
+    inset: var(--pad-wide);
+    background-size: var(--cell-wide-x) 100%, 100% var(--cell-wide-y);
+  }
+}
+@media (min-width: 48rem) and (max-width: 63.99rem) {
+  .grid {
+    inset: var(--pad-tablet);
+    background-size: var(--cell-tablet-x) 100%, 100% var(--cell-tablet-y);
+  }
+}
+@media (max-width: 47.99rem) {
+  .grid {
+    inset: calc(var(--header-height) + var(--pad-mobile)) var(--pad-mobile) var(--pad-mobile);
+    background-size: var(--cell-mobile-x) 100%, 100% var(--cell-mobile-y);
+  }
+}

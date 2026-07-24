@@ -1,0 +1,86 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: calc(var(--header-height) + 2rem) var(--page-gutter) 3rem;
+  background: #0b0c0b;
+  isolation: isolate;
+}
+.compositionGrid {
+  position: absolute;
+  z-index: 2;
+  inset: var(--pad-desktop);
+  display: grid;
+  grid-template-columns: repeat(var(--cols-desktop), 1fr);
+  grid-template-rows: repeat(var(--rows-desktop), 1fr);
+  pointer-events: none;
+}
+.copy {
+  align-self: start;
+  max-width: 34rem;
+  padding: 0.75rem 0 0.75rem clamp(0.8rem, 1.4vw, 1.5rem);
+  background: transparent;
+  border-left: 1px solid var(--scene-fg);
+  filter: none;
+  pointer-events: auto;
+  text-shadow: none;
+}
+.copy h1 { margin: 0; font-size: clamp(2.7rem, 5.6vw, 5.6rem); font-weight: 400; letter-spacing: -0.055em; line-height: 0.94; }
+.copy p { max-width: 27rem; margin: 1.75rem 0 0; color: #c3c0b7; font-size: clamp(0.9rem, 1.15vw, 1.05rem); line-height: 1.5; }
+.upper-left { grid-column: 1 / span 5; grid-row: 2 / span 3; }
+.middle-left { grid-column: 1 / span 5; grid-row: 4 / span 3; }
+.lower-left { grid-column: 1 / span 5; grid-row: -4 / -1; align-self: end; }
+.center-narrow { grid-column: 4 / -4; grid-row: 3 / span 3; justify-self: center; text-align: left; }
+.middle-right { grid-column: -6 / -1; grid-row: 4 / span 3; justify-self: end; text-align: right; }
+.middle-right p, .split-right p { margin-left: auto; }
+.lower-wide { grid-column: 1 / -1; grid-row: -4 / -1; align-self: end; max-width: 44rem; }
+.split-left { grid-column: 1 / span 5; grid-row: 3 / span 5; }
+.split-left p { margin-top: clamp(4rem, 12vh, 7rem); margin-left: clamp(2rem, 8vw, 8rem); }
+.split-right { grid-column: -6 / -1; grid-row: 3 / span 5; justify-self: end; text-align: right; }
+.split-right p { margin-top: clamp(4rem, 12vh, 7rem); margin-right: clamp(2rem, 8vw, 8rem); }
+.interstitial {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #e8e3d8;
+  background: #11110f;
+}
+.interstitial span { font: 400 0.85rem/1 "Courier New", monospace; letter-spacing: 0.03em; }
+
+@media (max-width: 40rem) {
+  .compositionGrid {
+    inset: calc(var(--header-height) + var(--pad-mobile)) var(--pad-mobile) var(--pad-mobile);
+    grid-template-columns: repeat(var(--cols-mobile), 1fr);
+    grid-template-rows: repeat(var(--rows-mobile), 1fr);
+  }
+  .copy {
+    grid-column: 1 / -1;
+    grid-row: -4 / -1;
+    align-self: end;
+    justify-self: stretch;
+    width: auto;
+    max-width: none;
+    text-align: left;
+  }
+  .copy h1 { font-size: clamp(2.7rem, 12vw, 4.2rem); }
+  .copy p { margin: 1.25rem 0 0; }
+}
+
+@media (min-width: 40.01rem) and (max-width: 63.99rem) {
+  .compositionGrid {
+    inset: var(--pad-tablet);
+    grid-template-columns: repeat(var(--cols-tablet), 1fr);
+    grid-template-rows: repeat(var(--rows-tablet), 1fr);
+  }
+  .copy { grid-column-end: span 4; }
+}
+
+@media (min-width: 90rem) {
+  .compositionGrid {
+    inset: var(--pad-wide);
+    grid-template-columns: repeat(var(--cols-wide), 1fr);
+    grid-template-rows: repeat(var(--rows-wide), 1fr);
+  }
+}
