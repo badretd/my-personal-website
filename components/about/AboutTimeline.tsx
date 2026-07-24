@@ -44,7 +44,7 @@ export function AboutTimeline() {
         <div className={styles.portrait}><Image src="/photo_2026-07-16_08-53-21.jpg" alt={dictionary.about.imageAlts[2]} fill sizes="(max-width: 48rem) 100vw, 56rem" /></div>
         <div className={styles.contacts}>
           <h2>{dictionary.about.contact}</h2>
-          <ul>{socials.map((social) => <li key={social.id}>{social.href ? <a href={social.href}>{social.label}</a> : <span>{dictionary.footer.telegramSoon}</span>}</li>)}</ul>
+          <ul>{socials.map((social) => <li key={social.id}>{social.href ? <a href={social.href}>{social.label}</a> : <span>{social.label} — {dictionary.footer.soon}</span>}</li>)}</ul>
         </div>
       </section>
     </main>

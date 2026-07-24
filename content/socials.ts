@@ -9,7 +9,7 @@ export const socials: readonly Social[] = [
   {
     id: "youtube",
     label: "YouTube",
-    href: "https://www.youtube.com/playlist?list=PLbwUX30QFDaM",
+    href: null,
   },
   { id: "telegram", label: "Telegram", href: null },
   { id: "soundcloud", label: "SoundCloud", href: "https://soundcloud.com/logka419" },

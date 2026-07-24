@@ -17,7 +17,7 @@ export function SiteFooter() {
                 {social.label}
               </a>
             ) : (
-              <span>{dictionary.footer.telegramSoon}</span>
+              <span>{social.label} — {dictionary.footer.soon}</span>
             )}
           </li>
         ))}

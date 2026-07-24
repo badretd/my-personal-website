@@ -55,7 +55,7 @@ export type Dictionary = {
     years: Record<"2023" | "2024" | "2025" | "2026", string>;
     imageAlts: readonly [string, string, string];
   };
-  footer: { label: string; copyright: string; telegramSoon: string };
+  footer: { label: string; copyright: string; soon: string };
 };
 
 const ru: Dictionary = {
@@ -131,7 +131,7 @@ const ru: Dictionary = {
   footer: {
     label: "Подвал сайта [ badretd ]",
     copyright: "© 2026 И. Р. Бадретдинов",
-    telegramSoon: "Telegram — скоро",
+    soon: "скоро",
   },
 };
 
@@ -208,7 +208,7 @@ const en: Dictionary = {
   footer: {
     label: "[ badretd ] site footer",
     copyright: "© 2026 I. R. Badretdinov",
-    telegramSoon: "Telegram — soon",
+    soon: "soon",
   },
 };
 
