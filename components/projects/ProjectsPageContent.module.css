@@ -1,0 +1,13 @@
+.main { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; }
+.system { position: absolute; z-index: -1; inset: 12rem 0 0; opacity: .5; pointer-events: none; }
+.system svg { width: 100%; height: 100%; min-height: 60rem; }
+.system path { fill: none; stroke: #858174; stroke-width: 1; stroke-dasharray: 6 16; opacity: .18; animation: lineTravel 18s linear infinite; transition: opacity 180ms ease, stroke-width 180ms ease; vector-effect: non-scaling-stroke; }
+.system path[data-active=true] { stroke-width: 2; stroke-dasharray: 14 7; opacity: .85; }
+.system rect { fill: #d9c786; opacity: .35; }
+.grid { display: grid; width: min(100% - 2 * var(--page-gutter), 90rem); grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 3rem); margin: 0 auto; padding-bottom: clamp(6rem, 12vw, 12rem); }
+@keyframes lineTravel { to { stroke-dashoffset: -220; } }
+@media (max-width: 47.99rem) {
+  .grid { grid-template-columns: 1fr; }
+  .system path:nth-child(n+3), .system rect:nth-of-type(n+4) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .system path { animation: none; } }

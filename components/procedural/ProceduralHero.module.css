@@ -65,6 +65,7 @@
     text-align: left;
   }
   .copy h1 { font-size: clamp(2.7rem, 12vw, 4.2rem); }
+  :global(html[lang="en"]) .copy h1 { font-size: clamp(2.35rem, 10.5vw, 4.2rem); }
   .copy p { margin: 1.25rem 0 0; }
 }
 

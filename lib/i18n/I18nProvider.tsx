@@ -29,6 +29,15 @@ export function I18nProvider({
   }
 
   useEffect(() => {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    const detected: Locale = saved === "ru" || saved === "en"
+      ? saved
+      : window.navigator.language.toLowerCase().startsWith("ru") ? "ru" : "en";
+    const task = window.setTimeout(() => setLocaleState(detected), 0);
+    return () => window.clearTimeout(task);
+  }, []);
+
+  useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 

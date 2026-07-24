@@ -1,2 +1,6 @@
-import { RoutePlaceholder } from "@/components/layout/RoutePlaceholder";
-export default function ProjectsPage() { return <RoutePlaceholder route="projects" />; }
+import { ProjectsPageContent } from "@/components/projects/ProjectsPageContent";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+
+export default function ProjectsPage() {
+  return <><ProjectsPageContent /><SiteFooter /></>;
+}

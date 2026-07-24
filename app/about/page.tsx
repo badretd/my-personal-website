@@ -1,2 +1,6 @@
-import { RoutePlaceholder } from "@/components/layout/RoutePlaceholder";
-export default function AboutPage() { return <RoutePlaceholder route="about" />; }
+import { AboutTimeline } from "@/components/about/AboutTimeline";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+
+export default function AboutPage() {
+  return <><AboutTimeline /><SiteFooter /></>;
+}

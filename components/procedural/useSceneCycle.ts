@@ -6,7 +6,7 @@ import { createSessionSeed, SeededRandom } from "@/lib/procedural/random";
 import { ShuffledSceneBag } from "@/lib/procedural/shuffledBag";
 import type { SceneConfig } from "@/lib/procedural/types";
 
-const SCENE_DURATION = 5_000;
+const SCENE_DURATION = 16_000;
 const INTERSTITIAL_DURATION = 1_000;
 const INITIAL_SCENE = generateScene(416, "line-field");
 

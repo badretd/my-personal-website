@@ -1,0 +1,14 @@
+.explorer { width: min(100% - 2 * var(--page-gutter), 90rem); margin: 0 auto; padding-bottom: clamp(5rem, 10vw, 10rem); }
+.controls { display: grid; grid-template-columns: minmax(15rem, 1fr) minmax(12rem, .4fr) auto; gap: 2rem; align-items: end; margin-bottom: 4rem; padding: 2rem 0; border-block: 1px solid var(--line); }
+.controls label, .controls legend { color: var(--muted); font: .65rem/1.4 "Courier New", monospace; }
+.controls input, .controls select { display: block; width: 100%; min-height: 2.8rem; margin-top: .65rem; padding: .6rem .75rem; color: var(--text); background: #0f100f; border: 1px solid var(--line); border-radius: 0; }
+.controls fieldset { grid-column: 1 / -1; padding: 0; border: 0; }
+.controls fieldset div { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.controls fieldset button, .reset { min-height: 2.75rem; padding: .65rem .9rem; color: var(--muted); background: transparent; border: 1px solid var(--line); cursor: pointer; }
+.controls fieldset button[aria-pressed=true] { color: #0b0c0b; background: #d9c786; border-color: #d9c786; }
+.controls fieldset button span { margin-right: .5rem; }
+.reset:disabled { opacity: .35; cursor: default; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.empty { min-height: 18rem; margin: 0; padding-top: 3rem; color: var(--muted); border-top: 1px solid var(--line); }
+@media (max-width: 63.99rem) { .controls, .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 39.99rem) { .controls, .grid { grid-template-columns: 1fr; } .controls fieldset { grid-column: 1; } }

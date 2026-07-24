@@ -1,0 +1,30 @@
+.card {
+  position: relative;
+  display: grid;
+  min-height: 28rem;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 1.25rem;
+  padding: clamp(1.35rem, 2.5vw, 2.5rem);
+  overflow: hidden;
+  background: #0e0f0eeb;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+.card::before {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, transparent calc(100% - 1px), #eeeae00c 1px);
+  background-size: 25% 100%;
+  content: "";
+  pointer-events: none;
+}
+.card:hover, .card:focus-visible { background: #141512f2; border-color: #77746a; }
+.symbol { color: #d9c786; font: 1.6rem/1 "Courier New", monospace; }
+.card h3 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 400; letter-spacing: -0.04em; }
+.description { margin: 0; color: #c6c2b8; font-size: 0.94rem; line-height: 1.55; }
+.comment { padding-top: 1rem; border-top: 1px solid var(--line); }
+.comment > span, .repository { color: var(--muted); font: 0.62rem/1.3 "Courier New", monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.comment p { margin: 0.65rem 0 0; color: #d9c786; font-size: 0.82rem; line-height: 1.5; }
+.repository { margin-top: 0.25rem; }
+@media (max-width: 42rem) { .card { min-height: 25rem; } }

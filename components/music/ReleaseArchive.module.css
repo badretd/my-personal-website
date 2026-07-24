@@ -1,0 +1,16 @@
+.archive { width: min(100% - 2 * var(--page-gutter), 90rem); margin: 0 auto; padding-block: clamp(4rem, 9vw, 8rem); border-top: 1px solid var(--line); }
+.archive h2 { margin: 0 0 3rem; font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 400; letter-spacing: -.05em; }
+.archive ol { padding: 0; margin: 0; list-style: none; }
+.archive li { display: grid; grid-template-columns: 7rem minmax(10rem, 1fr) auto auto minmax(11rem, auto); align-items: center; gap: 2rem; padding-block: 1.25rem; border-top: 1px solid var(--line); }
+.cover { position: relative; aspect-ratio: 1; }
+.cover img { object-fit: cover; }
+.archive h3, .archive p { margin: 0; }
+.archive h3 { font-weight: 400; }
+.archive p, .archive time { margin-top: .5rem; color: var(--muted); font-size: .75rem; }
+.latest { padding: .4rem; border: 1px solid var(--line); font: .62rem/1 "Courier New", monospace; }
+.links { display: flex; flex-wrap: wrap; justify-content: end; gap: .75rem; }
+.links a { font-size: .7rem; text-transform: capitalize; }
+@media (max-width: 48rem) {
+  .archive li { grid-template-columns: 5rem 1fr; gap: 1rem; }
+  .archive time, .latest, .links { grid-column: 2; justify-self: start; }
+}

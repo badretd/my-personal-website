@@ -1,0 +1,23 @@
+.main { padding-top: var(--header-height); }
+.localeEn { display: none; }
+:global(html[lang="en"]) .localeRu { display: none; }
+:global(html[lang="en"]) .localeEn { display: block; }
+.localeRu, .localeEn { width: min(100% - 2 * var(--page-gutter), 58rem); margin: 0 auto; padding-block: clamp(4rem, 9vw, 8rem); }
+.back { display: inline-block; margin-bottom: clamp(3rem, 7vw, 6rem); padding-block: .7rem; border-bottom: 1px solid currentColor; font-size: .75rem; text-decoration: none; }
+.localeRu header, .localeEn header { padding-bottom: clamp(3rem, 7vw, 6rem); border-bottom: 1px solid var(--line); }
+.localeRu header time, .localeEn header time { color: var(--muted); font: .7rem/1 "Courier New", monospace; }
+.localeRu header h1, .localeEn header h1 { margin: 1.5rem 0; font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 400; letter-spacing: -.06em; line-height: .95; }
+.localeRu header p, .localeEn header p { max-width: 45rem; margin: 0; color: #c6c2b8; font-size: 1.05rem; line-height: 1.6; }
+.localeRu header ul, .localeEn header ul { display: flex; gap: 1rem; padding: 0; margin: 2rem 0 0; list-style: none; }
+.localeRu header li, .localeEn header li { color: #d9c786; font: .68rem/1 "Courier New", monospace; }
+.markdown { padding-block: clamp(3rem, 7vw, 6rem); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.75; }
+.markdown > :first-child { margin-top: 0; }
+.markdown h1, .markdown h2, .markdown h3 { margin: 2.5em 0 .8em; font-weight: 400; letter-spacing: -.035em; line-height: 1.1; }
+.markdown h1 { font-size: 2.2em; }.markdown h2 { font-size: 1.65em; }.markdown h3 { font-size: 1.3em; }
+.markdown p, .markdown ul, .markdown ol { margin: 1.2em 0; }
+.markdown blockquote { margin: 2rem 0; padding: .5rem 0 .5rem 1.5rem; color: #d9c786; border-left: 1px solid currentColor; }
+.markdown code { padding: .15em .35em; background: #171815; font: .88em/1.5 "Courier New", monospace; }
+.markdown pre { max-width: 100%; padding: 1.25rem; overflow-x: auto; background: #11120f; border: 1px solid var(--line); }
+.markdown pre code { padding: 0; background: transparent; }
+.markdown img { display: block; width: 100%; height: auto; margin-block: 2.5rem; }
+.markdown hr { margin-block: 3rem; border: 0; border-top: 1px solid var(--line); }

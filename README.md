@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# [ badretd ]
 
-## Getting Started
+A fully static bilingual personal site. Local content changes require a new build and deployment.
 
-First, run the development server:
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npx tsc --noEmit
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Blog content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Articles live in `content/blog/<slug>/ru.md` and `content/blog/<slug>/en.md`. Both UTF-8 files are required; there are no drafts. Markdown supports headings, paragraphs, emphasis, lists, links, blockquotes, code, images, and horizontal rules. Images live in `public/blog/<slug>/images/`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+python scripts/manage_blog.py add
+python scripts/manage_blog.py remove <slug>
+python scripts/manage_blog.py add-image <slug> <image-path>
+python scripts/manage_blog.py list
+python scripts/manage_blog.py validate
+```
 
-## Learn More
+`add-image` copies an image locally, prints localized Markdown snippets, and appends them only after confirmation. The script never opens an editor.
 
-To learn more about Next.js, take a look at the following resources:
+## Music releases
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Release metadata lives in `content/music/releases.json`; managed covers are copied to `public/music/<release-id>/`. Releases link to listening services: this site stores or plays no audio and the script uploads nothing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+python scripts/manage_releases.py add
+python scripts/manage_releases.py remove <release-id>
+python scripts/manage_releases.py list
+python scripts/manage_releases.py validate
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+After any Blog or release change, run a new static build and redeploy the generated site.

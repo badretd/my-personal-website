@@ -1,0 +1,8 @@
+.card { position: relative; display: grid; min-height: 22rem; grid-template-rows: auto auto 1fr auto; gap: 1.25rem; padding: clamp(1.25rem, 2.4vw, 2.25rem); border: 1px solid var(--line); text-decoration: none; }
+.card:hover { background: #141512; border-color: #77746a; }
+.card time { color: var(--muted); font: .65rem/1 "Courier New", monospace; }
+.card h3 { margin: 0; font-size: clamp(1.5rem, 2.5vw, 2.25rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.05; }
+.card p { margin: 0; color: #c6c2b8; font-size: .9rem; line-height: 1.55; }
+.card ul { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-self: end; padding: 1rem 0 0; margin: 0; border-top: 1px solid var(--line); list-style: none; }
+.card li { color: #d9c786; font: .65rem/1 "Courier New", monospace; }
+.card > span { position: absolute; right: 1.25rem; top: 1.25rem; color: #d9c786; }
