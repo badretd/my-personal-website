@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import "./globals.css";
@@ -20,6 +21,7 @@ export default function RootLayout({
           <SiteHeader />
           {children}
         </I18nProvider>
+        <Analytics />
       </body>
     </html>
   );
